@@ -333,6 +333,21 @@
                     $(window).scrollTop(-20);
                 })
 
+                $("#about-nav").click(function(){
+                    let position = $("#about").position()
+                    $(window).scrollTop(position.top)
+                })
+
+                $("#gallery-nav").click(function(){
+                    let position = $("#gallery").position()
+                    $(window).scrollTop(position.top)
+                })
+
+                $("#contact-nav").click(function(){
+                    let position = $("#contact-section").position()
+                    $(window).scrollTop(position.top)
+                })
+
             })
         </script>
     </head>
@@ -341,9 +356,9 @@
         <div id="hero">
             <div id="navbar-container">
                 <a id="home-nav" class="nav-links"><h4>Home</h4></a>
-                <a class="nav-links" href="#about"><h4>About</h4></a>
-                <a class="nav-links" href="#gallery"><h4>Gallery</h4></a>
-                <a class="nav-links" href="#contact-section"><h4>Contact</h4></a>
+                <a id="about-nav" class="nav-links"><h4>About</h4></a>
+                <a id="gallery-nav" class="nav-links"><h4>Gallery</h4></a>
+                <a id="contact-nav" class="nav-links"><h4>Contact</h4></a>
             </div>
             <h1 id="title">Wreaths By Shannon</h1>
             <div class="center">
