@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <meta name="description" content="Wreaths in Middletown, DE, by Shannon O'Neal">
+        <meta name="subject" content="Wreaths for sale">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=IM+Fell+Double+Pica:ital@1&display=swap" rel="stylesheet">
+
+        <!-- jquery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="index.js"></script>
+
+        <title>Wreaths By Shannon</title>
+        <style>
+          /* general styling */
+          html {
+              scroll-behavior: smooth;
+              font-family: 'Allura', cursive;
+          }
+
+          body {
+              margin: 0;
+              background-color: #F5F9E9;
+          }
+
+          .center {
+              margin: 0;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+          }
+          /* end general styling */
+
+
+
+
+          /* navbar section\ */
+          #navbar-container {
+              display: flex;
+              justify-content: stretch;
+              background-color: #B88C9E;
+              transition: 0.5s ease;
+              position: fixed;
+              width: 100%;
+              top: 0;
+          }
+
+          #navbar-container a {
+              padding: 20px 30px;
+              transition: 0.3s ease;
+          }
+
+          #navbar-container h4 {
+              font-size: 2rem;
+              padding: 0;
+              margin: 0;
+          }
+
+          #navbar-container a:hover {
+              background-color: #5998C5;
+              cursor: pointer;
+              border-right: 1px solid #F5F9E9;
+          }
+
+          .nav-links {
+              text-decoration: none;
+              color: #F5F9E9;
+          }
+          /* end navbar section */
+
+
+
+
+          /* title  */
+          #title {
+              margin-bottom: 0;
+              font-size: 5rem;
+              text-align: center;
+              margin-top: 5rem;
+          }
+          /* end title  */
+
+
+
+
+          /* slideshow section */
+          .slideshow-image {
+              text-align: center;
+              background-color: #F5F9E9;
+              height: 40rem;
+              /* width: 100%; */
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: 40rem;
+          }
+
+          .slideshow-image h3 {
+              margin: 0;
+          }
+
+          .slideshow-content {
+              margin: auto;
+              opacity: 70%;
+              padding: 10px 0 2px 0;
+              background-color: rgb(0, 0, 0);
+              border-radius: 20px;
+              color: rgb(255, 255, 255);
+              width: 30%;
+              position: relative;
+              top: 200pt;
+          }
+
+          #slide1 {
+              background-image: url("<%= image_tag "header1.jpg"%>");
+              display: block;
+          }
+
+          #slide2 {
+              background-image: url("../images/header2.jpg");
+              display: none;
+          }
+
+          #slide3 {
+              background-image: url("../images/header3.jpg");
+              display: none;
+          }
+          /* end slideshow section */
+
+
+
+
+          /* start about section  */
+          #about {
+              margin: 0 20rem;
+          }
+
+          #bio {
+              font-family: cursive;
+              text-align: left;
+              font-size: 2.5rem;
+          }
+
+          #selfie {
+              height: 40rem;
+          }
+
+          #about-title {
+              text-align: center;
+              color: #B88C9E;
+              font-size: 5rem;
+              margin-bottom: 0;
+          }
+          /* end about section  */
+
+
+
+
+          /* start gallery section */
+          #gallery {
+              text-align: center;
+          }
+
+          #gallery-title {
+              color: #B88C9E;
+              font-size: 5rem;
+              margin-bottom: 0;
+          }
+
+          #wreaths-container {
+              display: grid;
+              grid-template-columns: auto auto auto;
+          }
+
+          #wreaths-container img {
+            object-fit: cover;
+            width: 25rem;
+            height: 25rem;
+            padding: 1rem;
+          }
+
+          #text {
+              display: none;
+          }
+          /* end gallery section  */
+
+
+
+
+          /* contact section */
+          #contact-section {
+              font-size: 1.5rem;
+              padding: 50pt 0;
+              text-align: center;
+          }
+
+          #contact-section i {
+              font-family: 'IM Fell Double Pica', serif;
+          }
+
+          #contact-title {
+              color: #B88C9E;
+              font-size: 5rem;
+              margin-bottom: 0;
+          }
+
+          #contact-content {
+              font-family: 'IM Fell Double Pica', serif;
+              background-color: #B88C9E;
+              border: solid 1pt rgb(0, 0, 0);
+              margin: 20pt 200pt;
+              padding: 2rem;
+              display: flex;
+              justify-content: space-evenly;
+          }
+
+          #contact-info {
+              padding: 0;
+              text-align: left;
+              list-style-type: none;
+              margin: 0;
+          }
+
+          #contact-info a {
+              /* text-decoration: none; */
+              color: inherit;
+          }
+
+          #contact-info li {
+              padding: 5pt 0;
+          }
+
+          #contact-info span {
+              font-weight: bold;
+              font-style: italic;
+          }
+
+          #phone a:hover, #email a:hover, #facebook a:hover {
+              color: #F5F9E9;
+              font-weight: bold;
+              cursor: pointer;
+          }
+          /* end contact section */
+
+
+
+
+          /* footer */
+          footer {
+              padding: 20pt 0;
+          }
+
+          footer p {
+              font-size: 1.5rem;
+              text-align: center;
+              font-weight: bold;
+          }
+          /* end footer */
+
+
+
+
+          /* phone css  */
+
+          @media only screen and (max-width: 900px) {
+              #navbar-container h4 {
+                  color: black;
+              }
+
+              #title {
+                  font-size: 3rem;
+              }
+
+              #bio {
+                  margin: 0 5rem;
+              }
+
+              #bio p {
+                  margin: 5rem;
+              }
+
+              #wreaths-container {
+                  display: grid;
+                  grid-template-columns: auto auto;
+              }
+
+              #wreaths-container img {
+                  margin: 0;
+                  padding: 0;
+              }
+
+              #contact-content {
+                  margin: 0;
+                  padding: 0;
+                  border-left: none;
+                  border-right: none;
+              }
+          }
+        </style>
+        <script>
+            $(function(){
+                autoSlideShow();
+
+                function autoSlideShow(){
+                    var myIndex = 0;
+                    carousel();
+                
+                    function carousel() {
+                        var i;
+                        var x = $(".slideshow-image");
+                        for(var i=0;i<x.length;i++){
+                            x[i].style.display = "none";
+                        }
+                        myIndex++;
+                        if(myIndex > x.length){myIndex = 1}
+                        x[myIndex-1].style.display = "block";
+                        setTimeout(carousel, 5000)
+                    }
+                }
+
+                $("#home-nav").click(function(){
+                    $(window).scrollTop(-20);
+                })
+
+            })
+        </script>
+    </head>
+    <body>
+        <%= yield %>
+        <div id="hero">
+            <div id="navbar-container">
+                <a id="home-nav" class="nav-links"><h4>Home</h4></a>
+                <a class="nav-links" href="#about"><h4>About</h4></a>
+                <a class="nav-links" href="#gallery"><h4>Gallery</h4></a>
+                <a class="nav-links" href="#contact-section"><h4>Contact</h4></a>
+            </div>
+            <h1 id="title">Wreaths By Shannon</h1>
+            <div class="center">
+                <%= image_tag("header1.jpg", :class => "slideshow-image", :id => "slide1") %>
+                <%= image_tag("header2.jpg", :class => "slideshow-image", :id => "slide2") %>
+                <%= image_tag("header3.jpg", :class => "slideshow-image", :id => "slide3") %>
+            </div>
+        </div>
+
+        <div class="center">
+            <div id="about">
+                <h2 id="about-title">About</h2>
+                <div id="about-content">
+                    <div class="center">
+                        <div id="bio">
+                            <p>
+                                My name is Shannon O'Neal and I live in New Castle County, DE.
+                                I love making themed wreaths, It's been a hobby of mine for a while!
+                                I started off making them for friends and family but now I make them for anyone who is interested.
+                                Wreaths are made to order,
+                                check out my gallery for some inspiration and let me know what you want!
+                            </p>
+                            <%= image_tag("selfie.jpg")%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="gallery">
+            <h2 id="gallery-title">Gallery</h2>
+            <div class="center">
+                <div id="wreaths-container">
+                    <% @images.each do |i| %>
+                        <img src="<%= url_for(i.image) %>">
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="contact-section">
+            <h2 id="contact-title">Contact</h2>
+            <i>Interested? Message me on Facebook or send me an email!</i>
+            <div id="contact-content">
+                <ul id="contact-info">
+                    <li class="media"><span id="location">Location:</span> New Castle County, DE</li>
+                    <li class="media" id="facebook"><span>Facebook:</span> <a href="https://www.facebook.com/wreathsbyShannonO/photos/?ref=page_internal">@wreathsbyShannonO</a></li>
+                    <li class="media" id="email"><span>Email:</span> <a href = "mailto: wreathsbyshannon5@gmail.com">wreathsbyshannon5@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <footer>
+            <p>Created by <a href="https://wineselijah.wixsite.com/portfolio">Elijah Wines</a></p>
+        </footer>
+    </body>
+</html>

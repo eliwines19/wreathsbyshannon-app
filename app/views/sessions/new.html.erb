@@ -1,2 +1,53 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                background-color: #F5F9E9;
+                margin: 0;
+            }
+
+            #login-title {
+                text-align: center;
+                color: #B88C9E;
+                font-size: 3rem; 
+            }
+
+            #form {
+                text-align: left;
+                background-color: #B88C9E;
+                padding: 2rem;
+                margin: 0 5em;
+                font-size: 2rem;
+            }
+
+            #space {
+                margin: 1rem;
+            }
+
+            .login-btn {
+               color: #B88C9E;
+               width: 25%;
+               background-color: #F5F9E9;
+               padding: 1rem;
+               font-size: 2rem;
+            }
+        </style>
+    </head>
+    <body>
+      <h1 id="login-title">Login</h1>
+
+      <div id="form">
+         <%= form_tag '/login' do %>
+            <%= label_tag :username%>
+            <%= text_field_tag :username %>
+            <div id="space"></div>
+            <%= label_tag :password%>
+            <%= password_field_tag :password%>
+            <div id="space"></div>
+            <%= submit_tag "Login", :class => "login-btn"%>
+         <%end%>
+      </div>
+
+    </body>
+</html>

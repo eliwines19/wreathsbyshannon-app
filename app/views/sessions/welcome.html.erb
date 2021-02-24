@@ -1,2 +1,54 @@
-<h1>Sessions#welcome</h1>
-<p>Find me in app/views/sessions/welcome.html.erb</p>
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                background-color: #F5F9E9;
+            }
+
+            #welcome-title {
+                text-align: center;
+                color: #B88C9E;
+                font-size: 3rem; 
+            }
+
+            #login-title {
+                text-align: center;
+                color: #B88C9E;
+                font-size: 3rem; 
+            }
+
+            .buttons {
+                text-align: center;
+                display: block;
+            }
+
+            .buttons input {
+                color: #F5F9E9;
+                width: 25%;
+                background-color: #B88C9E;
+                padding: 2rem;
+                font-size: 2rem;
+            }
+        </style>
+    </head>
+    <body>
+        <% if logged_in? %>
+
+            <h1 id="welcome-title">Hi <%= current_user.username %>!</h1>
+            <div class="buttons">
+                <%= button_to "See your website", "/", method: :get%>
+                <%= button_to "Add Photo", '/images/new', method: :get%>
+                <%= button_to 'Logout', '/logout', method: :post %>
+            </div>
+
+        <% else %>
+
+            <h1 id="login-title">Please log in</h1>
+            <div class="buttons">
+                <%= button_to "Log in", '/login', method: :get %>
+            </div>
+
+        <% end %>
+    </body>
+</html>
